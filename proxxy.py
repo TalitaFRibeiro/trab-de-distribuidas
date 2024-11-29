@@ -1,6 +1,7 @@
 import socket
 import sys
 import threading
+
 from concurrent.futures import ThreadPoolExecutor
 PORTSOP = [8080,8081,8082,8083]
 PORT = 8000
@@ -76,9 +77,10 @@ def vira_cliente(decoded_data):
         return "Formato de mensagem inválido."
     operador = pedido[0] 
     try:
-        arg1 = int(pedido[1])
-        arg2 = int(pedido[2])
+        arg1 = float(pedido[1])
+        arg2 = float(pedido[2])
     except ValueError:
+        
         return "Argumentos inválidos. Por favor, envie números inteiros."
     mensagem = str(arg1) + " " +str(arg2)
     try:
